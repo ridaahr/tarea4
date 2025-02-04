@@ -12,7 +12,7 @@ public class TextFile extends File{
 
     @Override
     public void open() {
-
+        System.out.println("Archivo de texto. Tamaño: " + getSize() + ". Directorio: " + getPath() + ". Texto: " + text);
     }
 
     public String getText() {

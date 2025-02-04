@@ -11,12 +11,11 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         var scanner = new Scanner(System.in);
-        Reader<TextFile> textReader = new ScannerTextFileReader(scanner);
-        Reader<ImageFile> imageReader = new ScannerImageFileReader(scanner);
-        Reader<AudioFile> audioReader = new ScannerAudioFileReader(scanner);
-        Reader<File> fileReader = new ScannerFileReader(scanner, textReader, imageReader, audioReader);
-        Reader<Program> program = new ScannerProgramReader(scanner, fileReader);
-        program.read();
-
+        Reader<TextFile> textFileReader = new ScannerTextFileReader(scanner);
+        Reader<Program<TextFile>> programReader = new ScannerProgramTextFileReader(scanner, textFileReader);
+        var program = programReader.read();
+        System.out.println("Introduce un path de salida:");
+        var outputPath = scanner.nextLine();
+        program.execute(outputPath);
     }
 }

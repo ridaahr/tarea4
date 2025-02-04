@@ -3,8 +3,8 @@ package org.ies.programm.model;
 import java.util.Objects;
 
 public class ImageFile extends File{
-    protected int height;
-    protected int width;
+    private int height;
+    private int width;
 
     public ImageFile(int size, String path, int height, int width) {
         super(size, path);
@@ -14,7 +14,7 @@ public class ImageFile extends File{
 
     @Override
     public void open() {
-
+        System.out.println("Archivo de imágen. Tamaño: " + getSize() + ". Directorio: " + getPath() + ". Altura: " + height + ". Anchura: " + width);
     }
 
     public int getHeight() {
